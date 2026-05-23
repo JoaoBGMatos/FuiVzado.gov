@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Conta GOV - Segurança Digital</title>
+
+<!-- FONT AWESOME -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#f1f5fb;
+}
+
+header{
+    width:100%;
+    height:80px;
+    background:#ffffff;
+    border-bottom:1px solid #d9d9d9;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 50px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-icon{
+    width:50px;
+    height:50px;
+    background:#1351b4;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:22px;
+}
+
+.logo h1{
+    color:#1351b4;
+    font-size:30px;
+}
+
+.logo span{
+    color:#ffcc00;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    font-weight:bold;
+}
+
+.login-btn{
+    background:#1351b4;
+    color:#fff;
+    border:none;
+    padding:12px 25px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.hero{
+    width:100%;
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:60px;
+}
+
+.hero-content{
+    width:1200px;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.hero-text h2{
+    font-size:60px;
+    color:#0c326f;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    font-size:20px;
+    color:#555;
+    margin-bottom:30px;
+}
+
+.search-box{
+    background:#fff;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.search-box input{
+    width:100%;
+    height:55px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    padding:0 15px;
+    margin-bottom:15px;
+}
+
+.search-box button{
+    width:100%;
+    height:55px;
+    border:none;
+    border-radius:10px;
+    background:#1351b4;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+}
+
+.hero-image img{
+    width:100%;
+    border-radius:25px;
+}
+
+.cards{
+    width:100%;
+    padding:70px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card i{
+    font-size:35px;
+    color:#1351b4;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+}
+
+.dashboard{
+    width:100%;
+    padding:70px;
+}
+
+.dashboard-box{
+    background:#fff;
+    padding:40px;
+    border-radius:25px;
+}
+
+.dashboard-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin-top:30px;
+}
+
+.stat{
+    background:#f4f8ff;
+    padding:25px;
+    border-radius:15px;
+}
+
+.stat h2{
+    color:#1351b4;
+    margin-bottom:10px;
+}
+
+.result-section{
+    width:100%;
+    padding:70px;
+    display:none;
+}
+
+.result-box{
+    background:#fff;
+    padding:40px;
+    border-radius:25px;
+}
+
+.result-box h2{
+    color:#0d7c2f;
+    margin-bottom:20px;
+}
+
+.result-item{
+    background:#f7f9ff;
+    padding:15px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+footer{
+    background:#0c326f;
+    color:#fff;
+    text-align:center;
+    padding:30px;
+}
+
+.modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    display:none;
+    align-items:center;
+    justify-content:center;
+}
+
+.modal-content{
+    width:400px;
+    background:#fff;
+    padding:35px;
+    border-radius:20px;
+}
+
+.modal-content h2{
+    margin-bottom:20px;
+    color:#1351b4;
+}
+
+.modal-content input{
+    width:100%;
+    height:50px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    padding:0 15px;
+}
+
+.modal-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.modal-buttons button{
+    flex:1;
+    height:50px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.cancel-btn{
+    background:#ddd;
+}
+
+.enter-btn{
+    background:#1351b4;
+    color:#fff;
+}
+
+@media(max-width:900px){
+    .hero-content{
+        grid-template-columns:1fr;
+    }
+    .hero-text h2{
+        font-size:42px;
+    }
+    header{
+        padding:0 20px;
+    }
+    nav{
+        display:none;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <div class="logo-icon">
+            <i class="fa-solid fa-shield"></i>
+        </div>
+        <h1>gov<span>.br</span></h1>
+    </div>
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Segurança</a>
+        <a href="#">Consultas</a>
+        <a href="#">Ajuda</a>
+    </nav>
+    <button class="login-btn" onclick="abrirModal()">
+        Entrar
+    </button>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text">
+            <h2>Verifique vazamentos de dados pessoais</h2>
+            <p>Consulte CPF, telefone e e-mail em bancos de dados monitorados.</p>
+            <div class="search-box">
+                <input type="text" placeholder="Digite seu CPF ou E-mail">
+                <button onclick="abrirModal()">Verificar Vazamento</button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Segurança">
+        </div>
+    </div>
+</section>
+
+<section class="cards">
+    <div class="card">
+        <i class="fa-solid fa-user-lock"></i>
+        <h3>Proteção de Dados</h3>
+        <p>Monitoramento completo de dados expostos.</p>
+    </div>
+    <div class="card">
+        <i class="fa-solid fa-lock"></i>
+        <h3>Criptografia</h3>
+        <p>Sistema protegido com segurança avançada.</p>
+    </div>
+    <div class="card">
+        <i class="fa-solid fa-bell"></i>
+        <h3>Alertas</h3>
+        <p>Receba notificações em tempo real.</p>
+    </div>
+</section>
+
+<section class="dashboard">
+    <div class="dashboard-box">
+        <h2>Painel de Segurança</h2>
+        <div class="dashboard-grid">
+            <div class="stat">
+                <h2>1.2M</h2>
+                <p>Consultas realizadas</p>
+            </div>
+            <div class="stat">
+                <h2>98%</h2>
+                <p>Precisão do sistema</p>
+            </div>
+            <div class="stat">
+                <h2>24h</h2>
+                <p>Monitoramento contínuo</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="result-section" id="resultado">
+    <div class="result-box">
+        <h2>Dados Encontrados</h2>
+        <div class="result-item">
+            <strong>E-mail:</strong> usuario@email.com
+        </div>
+        <div class="result-item">
+            <strong>Telefone:</strong> (11) 99999-9999
+        </div>
+        <div class="result-item">
+            <strong>Status:</strong> Encontrado em banco de dados
+        </div>
+    </div>
+</section>
+
+<section class="cards">
+    <div class="card" onclick="abrirHistorico()" style="cursor:pointer;">
+        <i class="fa-solid fa-database"></i>
+        <h3>Histórico de Consultas</h3>
+        <p>Visualize todas as consultas realizadas anteriormente.</p>
+    </div>
+    <div class="card" onclick="monitorarEmails()" style="cursor:pointer;">
+        <i class="fa-solid fa-envelope-circle-check"></i>
+        <h3>Monitoramento de E-mails</h3>
+        <p>Receba alertas automáticos de novos vazamentos.</p>
+    </div>
+    <div class="card" onclick="abrirMobile()" style="cursor:pointer;">
+        <i class="fa-solid fa-mobile-screen-button"></i>
+        <h3>Proteção Mobile</h3>
+        <p>Compatível com celulares e tablets modernos.</p>
+    </div>
+    <div class="card" onclick="loginBiometrico()" style="cursor:pointer;">
+        <i class="fa-solid fa-fingerprint"></i>
+        <h3>Login Biométrico</h3>
+        <p>Autenticação avançada para mais segurança.</p>
+    </div>
+    <div class="card" onclick="backupSeguro()" style="cursor:pointer;">
+        <i class="fa-solid fa-cloud"></i>
+        <h3>Backup Seguro</h3>
+        <p>Armazenamento protegido em nuvem criptografada.</p>
+    </div>
+    <div class="card" onclick="antiFraude()" style="cursor:pointer;">
+        <i class="fa-solid fa-shield-virus"></i>
+        <h3>Proteção Anti Fraude</h3>
+        <p>Sistema inteligente contra tentativas de golpe.</p>
+    </div>
+</section>
+
+<section class="dashboard">
+    <div class="dashboard-box">
+        <h2>Central de Atividades</h2>
+        <div class="dashboard-grid">
+            <div class="stat">
+                <h2>350K</h2>
+                <p>CPFs monitorados</p>
+            </div>
+            <div class="stat">
+                <h2>780K</h2>
+                <p>E-mails protegidos</p>
+            </div>
+            <div class="stat">
+                <h2>99.9%</h2>
+                <p>Proteção em tempo real</p>
+            </div>
+            <div class="stat">
+                <h2>256 Bits</h2>
+                <p>Criptografia avançada</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Monitoramento Digital">
+        </div>
+        <div class="hero-text">
+            <h2>Central avançada de segurança digital</h2>
+            <p>Nosso sistema monitora bancos de dados vazados e detecta ameaças digitais em tempo real.</p>
+            <div class="search-box">
+                <input type="text" placeholder="Consultar telefone ou CPF">
+                <button onclick="abrirModal()">Monitorar Agora</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="result-section" id="painelAvancado" style="display:block;">
+    <div class="result-box">
+        <h2>Painel Avançado de Segurança</h2>
+        <div class="result-item">
+            <strong>Status do CPF:</strong> Proteção ativa
+        </div>
+        <div class="result-item">
+            <strong>Monitoramento:</strong> Ativado em tempo real
+        </div>
+        <div class="result-item">
+            <strong>Último Vazamento:</strong> Detectado há 12 dias
+        </div>
+        <div class="result-item">
+            <strong>Nível de Segurança:</strong> Alto
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Plataforma GOV Digital</p>
+</footer>
+
+<div class="modal" id="modalLogin">
+    <div class="modal-content">
+        <h2>Conta gov.br</h2>
+        <input type="text" id="cpfLogin" placeholder="CPF">
+        <input type="password" id="senhaLogin" placeholder="Senha">
+        <div class="modal-buttons">
+            <button class="cancel-btn" onclick="fecharModal()">Cancelar</button>
+            <button class="enter-btn" onclick="mostrarResultado()">Entrar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+let historicoConsultas = [];
+
+function abrirModal(){
+    const modal = document.getElementById('modalLogin');
+    modal.style.display = 'flex';
+}
+
+function fecharModal(){
+    const modal = document.getElementById('modalLogin');
+    modal.style.display = 'none';
+}
+
+function mostrarResultado(){
+    const cpfInput = document.querySelector('#cpfLogin');
+    const senhaInput = document.querySelector('#senhaLogin');
+
+    if(!cpfInput || !senhaInput){
+        alert('Campos não encontrados!');
+        return;
+    }
+
+    const cpf = cpfInput.value.trim();
+    const senha = senhaInput.value.trim();
+
+    if(cpf === '' || senha === ''){
+        alert('Preencha CPF e senha corretamente!');
+        return;
+    }
+
+    fecharModal();
+
+    const resultado = document.getElementById('resultado');
+    if(resultado){
+        resultado.style.display = 'block';
+        window.scrollTo({
+            top: resultado.offsetTop,
+            behavior: 'smooth'
+        });
+    }
+
+    historicoConsultas.push({
+        cpf: cpf,
+        data: new Date().toLocaleString()
+    });
+
+    alert('Consulta realizada com sucesso!');
+}
+
+function abrirHistorico(){
+    if(historicoConsultas.length === 0){
+        alert('Nenhuma consulta foi realizada ainda.');
+        return;
+    }
+
+    // CORREÇÃO: Linhas unificadas com \n para evitar quebra de sintaxe do JS
+    let historicoTexto = 'HISTÓRICO DE CONSULTAS\n\n';
+
+    historicoConsultas.forEach(function(item, index){
+        historicoTexto += 'Consulta #' + (index + 1) + '\n';
+        historicoTexto += 'CPF: ' + item.cpf + '\n';
+        historicoTexto += 'Data: ' + item.data + '\n\n';
+    });
+
+    alert(historicoTexto);
+}
+
+function monitorarEmails(){
+    const email = prompt('Digite seu e-mail para ativar o monitoramento:');
+    if(email === null || email === ''){
+        alert('Monitoramento cancelado.');
+        return;
+    }
+    alert('Monitoramento ativado para: ' + email);
+}
+
+function abrirMobile(){
+    document.body.style.maxWidth = '480px';
+    document.body.style.margin = '0 auto';
+    alert('Modo mobile ativado!');
+}
+
+function loginBiometrico(){
+    const autenticado = confirm('Deseja autenticar utilizando biometria?');
+    if(autenticado){
+        alert('Biometria validada com sucesso!');
+    }else{
+        alert('Autenticação cancelada.');
+    }
+}
+
+function backupSeguro(){
+    alert('Iniciando backup criptografado...');
+    setTimeout(function(){
+        alert('Backup concluído com sucesso!');
+    },2000);
+}
+
+function antiFraude(){
+    const itens = document.querySelectorAll('.result-item');
+    itens.forEach(function(item){
+        item.style.background = '#d8ffe1';
+        item.style.border = '2px solid #0d7c2f';
+    });
+    alert('Proteção Anti Fraude ativada!');
+}
+
+function gerarRelatorio(){
+    const texto = 'RELATÓRIO DE SEGURANÇA\nSistema ativo e protegido.';
+    const blob = new Blob([texto], { type: 'text/plain' });
+    const link = document.createElement('a');
+
+    link.href = URL.createObjectURL(blob);
+    link.download = 'relatorio-seguranca.txt';
+
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    alert('Relatório gerado!');
+}
+
+function ativarDarkMode(){
+    if(document.body.classList.contains('dark-mode')){
+        document.body.classList.remove('dark-mode');
+        document.body.style.background = '#f1f5fb';
+        document.body.style.color = '#000';
+    }else{
+        document.body.classList.add('dark-mode');
+        document.body.style.background = '#121212';
+        document.body.style.color = '#fff';
+    }
+}
+
+function atualizarPainel(){
+    const stats = document.querySelectorAll('.stat h2');
+    if(stats.length >= 3){
+        stats[0].innerHTML = '2.1M';
+        stats[1].innerHTML = '99.9%';
+        stats[2].innerHTML = '24/7';
+    }
+    alert('Painel updated com sucesso!');
+}
+
+window.onload = function(){
+    const resultado = document.getElementById('resultado');
+    if(resultado){
+        resultado.style.display = 'none';
+    }
+    console.log('Sistema carregado com sucesso!');
+};
+</script>
+
+</body>
+</html>
