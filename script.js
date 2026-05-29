@@ -1,52 +1,94 @@
+```javascript
+/* ========================= */
+/* script.js */
+/* ========================= */
+
+const modal = document.getElementById('modalLogin');
+
+const resultado = document.getElementById('resultado');
+
+const themeToggle = document.getElementById('themeToggle');
+
 let historicoConsultas = [];
 
+/* MODAL */
+
 function abrirModal(){
-    const modal = document.getElementById('modalLogin');
     modal.style.display = 'flex';
 }
 
 function fecharModal(){
-    const modal = document.getElementById('modalLogin');
     modal.style.display = 'none';
 }
 
+/* LOGIN */
+
 function mostrarResultado(){
 
-    const cpfInput = document.querySelector('#cpfLogin');
-    const senhaInput = document.querySelector('#senhaLogin');
+    const cpf = document
+        .getElementById('cpfLogin')
+        .value
+        .trim();
 
-    const cpf = cpfInput.value.trim();
-    const senha = senhaInput.value.trim();
+    const senha = document
+        .getElementById('senhaLogin')
+        .value
+        .trim();
 
-    if(cpf === '' || senha === ''){
-        alert('Preencha CPF e senha corretamente!');
+    if(!cpf || !senha){
+
+        alert('Preencha CPF e senha corretamente.');
+
         return;
     }
 
     fecharModal();
 
-    const resultado = document.getElementById('resultado');
-
     resultado.style.display = 'block';
 
     window.scrollTo({
         top: resultado.offsetTop,
-        behavior: 'smooth'
+        behavior:'smooth'
     });
 
     historicoConsultas.push({
-        cpf: cpf,
-        data: new Date().toLocaleString()
+        cpf,
+        data:new Date().toLocaleString()
     });
 
-    alert('Consulta realizada com sucesso!');
+    console.table(historicoConsultas);
+
+    alert('Login realizado com sucesso!');
 }
 
-window.onload = function(){
+/* DARK MODE */
 
-    const resultado = document.getElementById('resultado');
+themeToggle.addEventListener('click', () => {
+
+    document.body.classList.toggle('dark-mode');
+
+    const darkModeAtivo =
+        document.body.classList.contains('dark-mode');
+
+    localStorage.setItem(
+        'darkMode',
+        darkModeAtivo
+    );
+});
+
+/* LOAD */
+
+window.onload = () => {
 
     resultado.style.display = 'none';
 
-    console.log('Sistema carregado com sucesso!');
-}
+    const darkModeSalvo =
+        localStorage.getItem('darkMode');
+
+    if(darkModeSalvo === 'true'){
+        document.body.classList.add('dark-mode');
+    }
+
+    console.log('Sistema carregado com sucesso.');
+};
+```
