@@ -1,13 +1,16 @@
 ```html
+<!-- ========================= -->
+<!-- index.html -->
+<!-- ========================= -->
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
-    <!-- META TAGS -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- TÍTULO -->
     <title>Conta GOV - Segurança Digital</title>
 
     <!-- FONT AWESOME -->
@@ -15,7 +18,8 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -24,11 +28,13 @@
     <header>
 
         <div class="logo">
+
             <div class="logo-icon">
                 <i class="fa-solid fa-shield-halved"></i>
             </div>
 
             <h1>Conta<span>GOV</span></h1>
+
         </div>
 
         <nav>
@@ -39,6 +45,7 @@
         </nav>
 
         <div class="header-actions">
+
             <button class="theme-btn" id="themeToggle">
                 <i class="fa-solid fa-moon"></i>
             </button>
@@ -46,6 +53,7 @@
             <button class="login-btn" onclick="abrirModal()">
                 Entrar
             </button>
+
         </div>
 
     </header>
@@ -56,24 +64,32 @@
         <div class="hero-content">
 
             <div class="hero-text">
+
                 <h2>Segurança Digital Inteligente</h2>
 
                 <p>
-                    Plataforma moderna para autenticação e consulta segura
-                    de informações digitais.
+                    Plataforma moderna para autenticação e consulta
+                    segura de informações digitais.
                 </p>
 
                 <div class="search-box">
-                    <input type="text" placeholder="Digite seu CPF">
+
+                    <input type="text"
+                        placeholder="Digite seu CPF">
+
                     <button onclick="abrirModal()">
-                        Acessar sistema
+                        Acessar Sistema
                     </button>
+
                 </div>
+
             </div>
 
             <div class="hero-image">
+
                 <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
                     alt="Segurança Digital">
+
             </div>
 
         </div>
@@ -122,9 +138,12 @@
 
             <h2>Entrar no Sistema</h2>
 
-            <input type="text" id="cpfLogin" placeholder="Digite seu CPF">
+            <input type="text"
+                id="cpfLogin"
+                placeholder="Digite seu CPF">
 
-            <input type="password" id="senhaLogin"
+            <input type="password"
+                id="senhaLogin"
                 placeholder="Digite sua senha">
 
             <div class="modal-buttons">
@@ -151,7 +170,7 @@
     </footer>
 
     <!-- JAVASCRIPT -->
-    <script src="./js/script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
