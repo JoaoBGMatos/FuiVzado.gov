@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conta GOV - Segurança Digital</title>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">
+                <i class="fa-solid fa-shield"></i>
+            </div>
+            <h1>gov<span class="logo-highlight">.br</span></h1>
+        </div>
+        
+        <nav class="nav">
+            <a href="#" class="nav-link">Início</a>
+            <a href="#" class="nav-link">Segurança</a>
+            <a href="#" class="nav-link">Consultas</a>
+            <a href="#" class="nav-link">Ajuda</a>
+        </nav>
+        
+        <div class="header-actions">
+            <button class="theme-toggle" id="themeToggle" title="Alternar Modo Escuro">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            <button class="login-btn" onclick="abrirModal()">Entrar</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2>Verifique vazamentos de dados pessoais</h2>
+                <p>Consulte CPF, telefone e e-mail em bancos de dados monitorados.</p>
+                <div class="search-box">
+                    <input type="text" placeholder="Digite seu CPF ou E-mail" class="search-input">
+                    <button class="search-btn" onclick="abrirModal()">Verificar Vazamento</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Segurança Digital">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Cards -->
+    <section class="cards-section">
+        <div class="cards-grid">
+            <div class="card">
+                <i class="fa-solid fa-user-lock"></i>
+                <h3>Proteção de Dados</h3>
+                <p>Monitoramento completo de dados expostos.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-lock"></i>
+                <h3>Criptografia</h3>
+                <p>Sistema protegido com segurança avançada.</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-bell"></i>
+                <h3>Alertas</h3>
+                <p>Receba notificações em tempo real.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard">
+        <div class="dashboard-box">
+            <h2>Painel de Segurança</h2>
+            <div class="dashboard-grid">
+                <div class="stat">
+                    <h2>1.2M</h2>
+                    <p>Consultas realizadas</p>
+                </div>
+                <div class="stat">
+                    <h2>98%</h2>
+                    <p>Precisão do sistema</p>
+                </div>
+                <div class="stat">
+                    <h2>24h</h2>
+                    <p>Monitoramento contínuo</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="result-section" id="resultado">
+        <div class="result-box">
+            <h2>Dados Encontrados</h2>
+            <div class="result-item">
+                <strong>E-mail:</strong> usuario@email.com
+            </div>
+            <div class="result-item">
+                <strong>Telefone:</strong> (11) 99999-9999
+            </div>
+            <div class="result-item">
+                <strong>Status:</strong> Encontrado em banco de dados
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Cards -->
+    <section class="cards-section">
+        <div class="cards-grid">
+            <div class="card interactive-card" onclick="abrirHistorico()">
+                <i class="fa-solid fa-database"></i>
+                <h3>Histórico de Consultas</h3>
+                <p>Visualize todas as consultas realizadas anteriormente.</p>
+            </div>
+            <div class="card interactive-card" onclick="monitorarEmails()">
+                <i class="fa-solid fa-envelope-circle-check"></i>
+                <h3>Monitoramento de E-mails</h3>
+                <p>Receba alertas automáticos de novos vazamentos.</p>
+            </div>
+            <div class="card interactive-card" onclick="abrirMobile()">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <h3>Proteção Mobile</h3>
+                <p>Compatível com celulares e tablets modernos.</p>
+            </div>
+            <div class="card interactive-card" onclick="loginBiometrico()">
+                <i class="fa-solid fa-fingerprint"></i>
+                <h3>Login Biométrico</h3>
+                <p>Autenticação avançada para mais segurança.</p>
+            </div>
+            <div class="card interactive-card" onclick="backupSeguro()">
+                <i class="fa-solid fa-cloud"></i>
+                <h3>Backup Seguro</h3>
+                <p>Armazenamento protegido em nuvem criptografada.</p>
+            </div>
+            <div class="card interactive-card" onclick="antiFraude()">
+                <i class="fa-solid fa-shield-virus"></i>
+                <h3>Proteção Anti Fraude</h3>
+                <p>Sistema inteligente contra tentativas de golpe.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activity Center -->
+    <section class="dashboard">
+        <div class="dashboard-box">
+            <h2>Central de Atividades</h2>
+            <div class="dashboard-grid">
+                <div class="stat">
+                    <h2>350K</h2>
+                    <p>CPFs monitorados</p>
+                </div>
+                <div class="stat">
+                    <h2>780K</h2>
+                    <p>E-mails protegidos</p>
+                </div>
+                <div class="stat">
+                    <h2>99.9%</h2>
+                    <p>Proteção em tempo real</p>
+                </div>
+                <div class="stat">
+                    <h2>256 Bits</h2>
+                    <p>Criptografia avançada</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Monitoramento Digital">
+            </div>
+            <div class="hero-text">
+                <h2>Central avançada de segurança digital</h2>
+                <p>Nosso sistema monitora bancos de dados vazados e detecta ameaças digitais em tempo real.</p>
+                <div class="search-box">
+                    <input type="text" placeholder="Consultar telefone ou CPF" class="search-input">
+                    <button class="search-btn" onclick="abrirModal()">Monitorar Agora</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advanced Panel -->
+    <section class="result-section" id="painelAvancado">
+        <div class="result-box">
+            <h2>Painel Avançado de Segurança</h2>
+            <div class="result-item">
+                <strong>Status do CPF:</strong> Proteção ativa
+            </div>
+            <div class="result-item">
+                <strong>Monitoramento:</strong> Ativado em tempo real
+            </div>
+            <div class="result-item">
+                <strong>Último Vazamento:</strong> Detectado há 12 dias
+            </div>
+            <div class="result-item">
+                <strong>Nível de Segurança:</strong> Alto
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Plataforma GOV Digital. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="modalLogin">
+        <div class="modal-content">
+            <button class="modal-close" onclick="fecharModal()">&times;</button>
+            <h2>Conta gov.br</h2>
+            <input type="text" id="cpfLogin" placeholder="CPF" class="modal-input">
+            <input type="password" id="senhaLogin" placeholder="Senha" class="modal-input">
+            <div class="modal-buttons">
+                <button class="cancel-btn" onclick="fecharModal()">Cancelar</button>
+                <button class="enter-btn" onclick="mostrarResultado()">Entrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
